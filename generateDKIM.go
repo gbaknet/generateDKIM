@@ -6,10 +6,9 @@ import (
 	"crypto/x509"
 	b64 "encoding/base64"
 	"encoding/pem"
-	"fmt"
 )
 
-func DKIM()(pri,pub string) {
+func DKIM() (pri, pub string) {
 	privatekey, err := rsa.GenerateKey(rand.Reader, 1024)
 	if err == nil {
 		var publickey *rsa.PublicKey
@@ -26,7 +25,7 @@ func DKIM()(pri,pub string) {
 		// fmt.Println(privkeyplain)
 		// fmt.Println()
 		// fmt.Println(privkey)
-		pri=privkeyplain
+		pri = privkeyplain
 		Pub, err := x509.MarshalPKIXPublicKey(publickey)
 		if err == nil {
 			pubBytes := pem.EncodeToMemory(&pem.Block{
@@ -40,7 +39,7 @@ func DKIM()(pri,pub string) {
 			// fmt.Println(pubkeyplain)
 			// fmt.Println()
 			// fmt.Println(pubkey)
-			pub=pubkeyplain
+			pub = pubkeyplain
 		}
 	}
 }
