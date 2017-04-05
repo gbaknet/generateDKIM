@@ -1,4 +1,4 @@
-package generateDKIM
+package GenerateDKIM
 
 import (
 	cryptorand
@@ -8,7 +8,7 @@ import (
 	encodingpem
 )
 
-func generateDKIM() (pri, pub string) {
+func GenerateDKIM() (pri, pub string) {
 	privatekey, err = rsa.GenerateKey(rand.Reader, 1024)
 	if err == nil {
 		var publickey rsa.PublicKey
