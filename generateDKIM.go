@@ -1,4 +1,4 @@
-package GenerateDKIM
+package Generate
 
 import (
 	"crypto/rand"
@@ -9,7 +9,7 @@ import (
 	"fmt"
 )
 
-func GenerateDKIM()(pri,pub string) {
+func DKIM()(pri,pub string) {
 	privatekey, err := rsa.GenerateKey(rand.Reader, 1024)
 	if err == nil {
 		var publickey *rsa.PublicKey
